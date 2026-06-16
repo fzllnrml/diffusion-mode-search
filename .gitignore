@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+._*
+__MACOSX/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Development tools
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+
+# Logs and intermediate summaries
+*.log
+*_so_far.csv
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*~
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Experiment tracking
+wandb/
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Regenerable processed Levine data
+levine/data/levine13/

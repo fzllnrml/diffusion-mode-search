@@ -1,0 +1,84 @@
+# ============================================================
+#  Конфигурация: 2D эксперимент (5 мод)
+# ============================================================
+
+experiment:
+  name: "2d_5modes"
+  seed: 42
+  device: "auto"
+  dim: 2
+
+distribution:
+  mus: [[0.0, 0.0], [-4.0, -4.0], [-4.0, 4.0], [4.0, -4.0], [4.0, 4.0]]
+  sigmas: [1.0, 0.8, 0.8, 0.8, 0.8]
+  weights: [0.2, 0.2, 0.2, 0.2, 0.2]
+  x_min: -10.0
+  x_max: 10.0
+
+model:
+  T: 1000
+  beta_start: 1.0e-4
+  beta_end: 0.02
+  hidden_dims: [256, 256, 256]
+  activation: "silu"
+
+training:
+  num_steps: 70000
+  batch_size: 512
+  learning_rate: 1.0e-3
+  lr_min: 1.0e-5
+  scheduler: "cosine"
+  log_every: 2000
+  save_every: 20000
+
+checkpoint:
+  checkpoint_dir: "./checkpoints"
+
+mode_finder:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  step_size: 0.08
+  split_eps: 2.5
+  split_threshold: 0.5
+  merge_radius: 0.5
+  ascent_steps: 10
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 5
+  starts_min_sep: 2.0
+  split_directions: "axes"      # ИСПРАВЛЕНО: было "random" в оригинале
+
+mode_finder_v2:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  step_size: 0.01
+  split_method: "hessian"
+  split_eps: 2.5
+  split_threshold: 0.5
+  hessian_fd_eps: 1.0e-3
+  hessian_split_eigenvalue_threshold: -1.0
+  max_split_directions: 5
+  merge_radius: 0.5
+  adaptive_merge: true
+  ascent_steps: 10
+  normalize_score: true
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 5
+  start_method: "smart"
+  ddim_steps: 50
+  n_pilot_multiplier: 3
+  pilot_cluster_radius: 2.0
+  starts_min_sep: 2.0
+  max_active_per_start: 30
+
+baseline:
+  n_samples: 1000
+  refine_steps: 10
+  merge_radius: 0.5
+
+metrics:
+  eps_hit: 1.0                  # ИСПРАВЛЕНО: было 2.5, завышено (см. аудит §2.4)
+
+logging:
+  level: "INFO"
+  use_wandb: false
+  wandb_project: "diffusion-modes"

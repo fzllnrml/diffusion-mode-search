@@ -1,0 +1,76 @@
+{
+  "script_version": "1.0.0",
+  "started_at_utc": "2026-06-09T16:42:01.855827+00:00",
+  "project_root": "/Users/ramil/Desktop/mag_may/work",
+  "output_dir": "/Users/ramil/Desktop/mag_may/work/results_pareto_validation_all",
+  "checkpoint_dir": "/Users/ramil/Desktop/mag_may/work/checkpoints",
+  "log_path": "/Users/ramil/Desktop/mag_may/work/results_pareto_validation_all/run.log",
+  "profile_name": "full",
+  "profile": {
+    "dims": [
+      10,
+      30,
+      50
+    ],
+    "k_values": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "dist_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "init_seeds": [
+      0,
+      1,
+      2
+    ],
+    "score_n": 512,
+    "gmm_random_starts": 64
+  },
+  "experiments": [
+    "gmm_mode_audit",
+    "score_alignment",
+    "search_comparison"
+  ],
+  "score_timesteps": [
+    0,
+    5,
+    20,
+    50,
+    100,
+    200,
+    400,
+    600,
+    800
+  ],
+  "overrides": {
+    "n_particles": null,
+    "ddim_steps": null,
+    "ascent_steps": null,
+    "refine_steps": null
+  },
+  "python": "3.12.2 (v3.12.2:6abddd9f6a, Feb  6 2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-14.4-arm64-arm-64bit",
+  "torch": "2.9.0",
+  "numpy": "1.26.4",
+  "command": [
+    "scripts/run_pareto_validation_experiments.py",
+    "--profile",
+    "full",
+    "--checkpoint-dir",
+    "./checkpoints",
+    "--output-dir",
+    "./results_pareto_validation_all"
+  ],
+  "total_mixtures": 90,
+  "total_search_runs": 270,
+  "load_only": true
+}

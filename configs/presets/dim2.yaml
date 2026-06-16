@@ -1,0 +1,66 @@
+# ============================================================
+#  configs/presets/dim2.yaml — 2D preset
+#
+#  Загружает configs/base.yaml и переопределяет параметры для 2D:
+#    - dim: 2
+#    - training.num_steps: 50000 (2D обучается быстрее)
+#    - Все алгоритмы: более широкие таймстепы, больше starts,
+#      больше n_particles, n_starts=5-7.
+#
+#  Использование:
+#    python -m scripts.run_experiment --config configs/presets/dim2.yaml --method v3
+#    python -m scripts.run_all_experiments --config configs/presets/dim2.yaml --experiment sweep_k
+# ============================================================
+
+_base: "../base.yaml"
+
+experiment:
+  name: "dim2_5modes"
+  dim: 2
+
+distribution:
+  mus: [[0.0, 0.0], [-4.0, -4.0], [-4.0, 4.0], [4.0, -4.0], [4.0, 4.0]]
+  sigmas: [1.0, 0.8, 0.8, 0.8, 0.8]
+  weights: [0.2, 0.2, 0.2, 0.2, 0.2]
+
+training:
+  num_steps: 50000     # 2D — быстрее сходится
+  log_every: 2000
+  save_every: 20000
+
+mode_finder_v1:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  step_size: 0.08
+  split_eps: 2.5
+  split_threshold: 0.5
+  merge_radius: 0.5
+  ascent_steps: 10
+  n_starts: 5
+  starts_min_sep: 2.0
+
+mode_finder_v2:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  split_eps: 2.5
+  split_threshold: 0.5
+  merge_radius: 0.5
+  ascent_steps: 10
+  n_starts: 5
+  starts_min_sep: 2.0
+
+mode_finder_v3_f1:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  split_eps: 2.5
+  ascent_steps: 10
+  n_starts: 7
+  starts_min_sep: 2.0
+
+mode_finder_v3_f2:
+  timesteps: [800, 600, 400, 300, 200, 150, 120, 100, 80, 60, 40, 20, 10, 0]
+  n_particles: 70
+  ascent_steps: 10
+
+mode_finder_v3_f3:
+  n_particles: 70
+
+baseline:
+  merge_radius: 0.5

@@ -1,0 +1,96 @@
+# ============================================================
+#  Конфигурация эксперимента: поиск мод в диффузионных моделях
+# ============================================================
+
+# --- Общие параметры ---
+experiment:
+  name: "default_1d"
+  seed: 42
+  device: "auto"            # "auto" | "cuda" | "cpu"
+  dim: 1                    # Размерность пространства данных
+
+# --- Целевое распределение (смесь Гауссианов) ---
+distribution:
+  mus: [-4.0, 0.0, 3.0, 8.0]
+  sigmas: [0.8, 1.0, 0.6, 0.7]
+  weights: [0.25, 0.30, 0.25, 0.20]
+  x_min: -10.0
+  x_max: 10.0
+
+# --- Диффузионная модель ---
+model:
+  T: 1000                   # Число шагов диффузии
+  beta_start: 1.0e-4
+  beta_end: 0.02
+  hidden_dims: [256, 256, 256]  # Скрытые слои нейросети
+  activation: "silu"            # "silu" | "relu" | "gelu"
+
+# --- Обучение ---
+training:
+  num_steps: 200000
+  batch_size: 512
+  learning_rate: 1.0e-3
+  lr_min: 1.0e-5
+  scheduler: "cosine"       # "cosine" | "none"
+  log_every: 1000
+  save_every: 50000          # Сохранять чекпоинт каждые N шагов
+
+# --- Чекпоинт (Google Drive) ---
+checkpoint:
+  checkpoint_dir: "./checkpoints"
+
+# --- Алгоритм поиска мод (v1, оригинальный) ---
+mode_finder:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01            # α — размер шага градиентного подъёма
+  split_eps: 2.0             # ε — масштаб смещения при проверке расщепления
+  split_threshold: 0.3       # τ_split — порог расщепления
+  merge_radius: 0.25         # τ_merge — радиус кластеризации
+  ascent_steps: 20           # Число шагов подъёма на каждом t
+  refine_steps: 100          # Число шагов финализации при t=0
+  refine_step_scale: 0.1     # Множитель α при финализации
+  n_starts: 3                # Число стартовых точек
+  starts_min_sep: 0.5        # Минимальное расстояние между стартами
+  split_directions: "axes"   # "axes" | "random" — направления проверки
+
+# --- Алгоритм поиска мод (v2, улучшенный) ---
+# Активируется через: python -m scripts.run_experiment --method v2
+mode_finder_v2:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01
+  split_method: "hessian"      # "hessian" | "axes"
+  split_eps: 2.0
+  split_threshold: 0.3
+  hessian_fd_eps: 1.0e-3       # ε для конечных разностей Гессиана
+  hessian_split_eigenvalue_threshold: -1.0  # порог отрицательных собственных значений
+  max_split_directions: 5
+  merge_radius: 0.25
+  adaptive_merge: true
+  ascent_steps: 20
+  normalize_score: true        # нормализация score по норме
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 3
+  start_method: "smart"        # "smart" (partial DDIM) | "uniform"
+  ddim_steps: 50               # число шагов DDIM для smart starts
+  n_pilot_multiplier: 3        # пилотных сэмплов = n_starts × multiplier
+  pilot_cluster_radius: 2.0
+  starts_min_sep: 0.5
+  max_active_per_start: 30
+
+# --- Baseline ---
+baseline:
+  n_samples: 1000
+  refine_steps: 10           # 0 = b0, >0 = b10
+  merge_radius: 0.25
+
+# --- Метрики ---
+metrics:
+  eps_hit: 1.0               # Порог для recall (мода «найдена»)
+
+# --- Логирование ---
+logging:
+  level: "INFO"              # "DEBUG" | "INFO" | "WARNING"
+  use_wandb: false
+  wandb_project: "diffusion-modes"
+  wandb_entity: null

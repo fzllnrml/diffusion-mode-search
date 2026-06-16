@@ -1,0 +1,1602 @@
+{
+  "created_at_utc": "2026-06-09T16:44:54.262794+00:00",
+  "dim": 10,
+  "K": 2,
+  "dist_seed": 2,
+  "init_seed": 1,
+  "config_path": "/Users/ramil/Desktop/mag_may/work/configs/presets/dim10.yaml",
+  "checkpoint_path": "/Users/ramil/Desktop/mag_may/work/checkpoints/dim_10/model_dim10_K2_dseed2.pth",
+  "mixture": {
+    "mus": [
+      [
+        -4.767757315013672,
+        -4.030177131717534,
+        6.284514811885607,
+        -8.161681157298062,
+        2.00201051931308,
+        4.571210536235892,
+        -6.241978532667931,
+        -8.897067453338636,
+        -4.500612641879238,
+        3.148660297511851
+      ],
+      [
+        1.2453132556085595,
+        -6.998754733893278,
+        -1.347384183904257,
+        3.385945971490404,
+        -1.5443065345974443,
+        2.663687985482328,
+        9.348719049873534,
+        3.6612964461925053,
+        -2.1675033383994773,
+        -6.254948605598038
+      ]
+    ],
+    "sigmas": [
+      0.7421724659002131,
+      0.857746181498704
+    ],
+    "weights": [
+      0.5455281547304274,
+      0.4544718452695726
+    ],
+    "min_separation": 27.339196523514094
+  },
+  "search_comparison": {
+    "init_seed": 1,
+    "eps_values": [
+      1.0,
+      1.5,
+      2.0,
+      2.5,
+      3.0
+    ],
+    "parameters": {
+      "n_particles": 150,
+      "ddim_steps": 50,
+      "ddim_transitions": 50,
+      "timesteps": [
+        800,
+        600,
+        400,
+        300,
+        200,
+        150,
+        100,
+        70,
+        50,
+        30,
+        15,
+        5,
+        0
+      ],
+      "step_size": 0.08,
+      "ascent_steps": 10,
+      "refine_steps": 100,
+      "refine_step_scale": 0.1,
+      "normalize_score": true,
+      "merge_factor": 1.0,
+      "merge_radius_min": 0.2,
+      "baseline_merge_radius": 1.0
+    },
+    "cost": {
+      "ddim_same_particles_neural_nfe": 7500,
+      "v3f2_learned_search_neural_nfe": 9680,
+      "v3f2_learned_total_neural_nfe": 17180,
+      "v3f2_exact_neural_nfe_for_shared_starts": 7500,
+      "v3f2_exact_analytic_score_evaluations": 10030,
+      "ddim_equal_nfe_n_samples": 343,
+      "ddim_equal_nfe_actual_neural_nfe": 17150,
+      "v3f2_learned_search_seconds": 21.947713915957138,
+      "v3f2_exact_search_seconds": 3.1940050419652835
+    },
+    "evaluations": {
+      "ddim_same_particles_raw": {
+        "n_found": 150,
+        "candidate_to_true_ratio": 75.0,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.04,
+              "f1": 0.07692307692307693,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 6,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 132,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.3,
+              "f1": 0.4615384615384615,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 45,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 132,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5866666666666667,
+              "f1": 0.7394957983193278,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 88,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 132,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 125,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 132,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ddim_same_particles_merge_v3f2": {
+        "n_found": 150,
+        "candidate_to_true_ratio": 75.0,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.04,
+              "f1": 0.07692307692307693,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 6,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.3,
+              "f1": 0.4615384615384615,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 45,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5866666666666667,
+              "f1": 0.7394957983193278,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 88,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8333333333333334,
+              "f1": 0.9090909090909091,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 150,
+              "n_hits": 2,
+              "n_correct": 125,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013333333333333334,
+              "f1": 0.02631578947368421,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 150,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ddim_same_particles_merge_baseline": {
+        "n_found": 149,
+        "candidate_to_true_ratio": 74.5,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 149,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 149,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.040268456375838924,
+              "f1": 0.07741935483870968,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 149,
+              "n_hits": 2,
+              "n_correct": 6,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013422818791946308,
+              "f1": 0.026490066225165563,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 149,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.30201342281879195,
+              "f1": 0.46391752577319584,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 149,
+              "n_hits": 2,
+              "n_correct": 45,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013422818791946308,
+              "f1": 0.026490066225165563,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 149,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5838926174496645,
+              "f1": 0.7372881355932204,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 149,
+              "n_hits": 2,
+              "n_correct": 87,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013422818791946308,
+              "f1": 0.026490066225165563,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 149,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8322147651006712,
+              "f1": 0.9084249084249084,
+              "soft_error": 1.2902234509661255,
+              "n_true": 2,
+              "n_found": 149,
+              "n_hits": 2,
+              "n_correct": 124,
+              "per_true_min_distance": [
+                1.2091050937896894,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.013422818791946308,
+              "f1": 0.026490066225165563,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 149,
+              "mean_matched_distance": 1.2902234509661255,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 17,
+                  "distance": 1.2091050937896894
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 94,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      },
+      "v3f2_learned": {
+        "n_found": 2,
+        "candidate_to_true_ratio": 1.0,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.5460994385055187,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.7892383147013506,
+                0.3029605623096867
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.5460994385055187,
+              "max_matched_distance": 0.7892383147013506,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 1,
+                  "distance": 0.7892383147013506
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 0,
+                  "distance": 0.3029605623096867
+                }
+              ]
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.5460994385055187,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.7892383147013506,
+                0.3029605623096867
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.5460994385055187,
+              "max_matched_distance": 0.7892383147013506,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 1,
+                  "distance": 0.7892383147013506
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 0,
+                  "distance": 0.3029605623096867
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.5460994385055187,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.7892383147013506,
+                0.3029605623096867
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.5460994385055187,
+              "max_matched_distance": 0.7892383147013506,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 1,
+                  "distance": 0.7892383147013506
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 0,
+                  "distance": 0.3029605623096867
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.5460994385055187,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.7892383147013506,
+                0.3029605623096867
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.5460994385055187,
+              "max_matched_distance": 0.7892383147013506,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 1,
+                  "distance": 0.7892383147013506
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 0,
+                  "distance": 0.3029605623096867
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.5460994385055187,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.7892383147013506,
+                0.3029605623096867
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.5460994385055187,
+              "max_matched_distance": 0.7892383147013506,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 1,
+                  "distance": 0.7892383147013506
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 0,
+                  "distance": 0.3029605623096867
+                }
+              ]
+            }
+          }
+        }
+      },
+      "v3f2_exact": {
+        "n_found": 2,
+        "candidate_to_true_ratio": 1.0,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.0022261871603837563,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.00032703828975165977,
+                0.0041253360310158525
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.0022261871603837563,
+              "max_matched_distance": 0.0041253360310158525,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 0.00032703828975165977
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 1,
+                  "distance": 0.0041253360310158525
+                }
+              ]
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.0022261871603837563,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.00032703828975165977,
+                0.0041253360310158525
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.0022261871603837563,
+              "max_matched_distance": 0.0041253360310158525,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 0.00032703828975165977
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 1,
+                  "distance": 0.0041253360310158525
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.0022261871603837563,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.00032703828975165977,
+                0.0041253360310158525
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.0022261871603837563,
+              "max_matched_distance": 0.0041253360310158525,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 0.00032703828975165977
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 1,
+                  "distance": 0.0041253360310158525
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.0022261871603837563,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.00032703828975165977,
+                0.0041253360310158525
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.0022261871603837563,
+              "max_matched_distance": 0.0041253360310158525,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 0.00032703828975165977
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 1,
+                  "distance": 0.0041253360310158525
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "soft_error": 0.0022261871603837563,
+              "n_true": 2,
+              "n_found": 2,
+              "n_hits": 2,
+              "n_correct": 2,
+              "per_true_min_distance": [
+                0.00032703828975165977,
+                0.0041253360310158525
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 1.0,
+              "f1": 1.0,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 2,
+              "mean_matched_distance": 0.0022261871603837563,
+              "max_matched_distance": 0.0041253360310158525,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 0.00032703828975165977
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 1,
+                  "distance": 0.0041253360310158525
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ddim_equal_nfe_raw": {
+        "n_found": 343,
+        "candidate_to_true_ratio": 171.5,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.04081632653061224,
+              "f1": 0.07843137254901959,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 14,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 279,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.2536443148688047,
+              "f1": 0.4046511627906976,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 87,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 279,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5714285714285714,
+              "f1": 0.7272727272727273,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 196,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 279,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8513119533527697,
+              "f1": 0.9196850393700787,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 292,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 279,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 84,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ddim_equal_nfe_merge_v3f2": {
+        "n_found": 343,
+        "candidate_to_true_ratio": 171.5,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.04081632653061224,
+              "f1": 0.07843137254901959,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 14,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 84,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.2536443148688047,
+              "f1": 0.4046511627906976,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 87,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 84,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5714285714285714,
+              "f1": 0.7272727272727273,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 196,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 84,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8513119533527697,
+              "f1": 0.9196850393700787,
+              "soft_error": 1.2237631551277501,
+              "n_true": 2,
+              "n_found": 343,
+              "n_hits": 2,
+              "n_correct": 292,
+              "per_true_min_distance": [
+                1.0761845021129388,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058309037900874635,
+              "f1": 0.011594202898550725,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 343,
+              "mean_matched_distance": 1.2237631551277501,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 84,
+                  "distance": 1.0761845021129388
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      },
+      "ddim_equal_nfe_merge_baseline": {
+        "n_found": 339,
+        "candidate_to_true_ratio": 169.5,
+        "metrics_by_eps": {
+          "1.0": {
+            "coverage": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "soft_error": 1.1922912702998127,
+              "n_true": 2,
+              "n_found": 339,
+              "n_hits": 0,
+              "n_correct": 0,
+              "per_true_min_distance": [
+                1.0132407324570643,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 0.0,
+              "precision": 0.0,
+              "f1": 0.0,
+              "matched": 0,
+              "n_true": 2,
+              "n_found": 339,
+              "mean_matched_distance": null,
+              "max_matched_distance": null,
+              "assignments": []
+            }
+          },
+          "1.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.038348082595870206,
+              "f1": 0.07386363636363637,
+              "soft_error": 1.1922912702998127,
+              "n_true": 2,
+              "n_found": 339,
+              "n_hits": 2,
+              "n_correct": 13,
+              "per_true_min_distance": [
+                1.0132407324570643,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058997050147492625,
+              "f1": 0.011730205278592374,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 339,
+              "mean_matched_distance": 1.1922912702998127,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 1.0132407324570643
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.25073746312684364,
+              "f1": 0.4009433962264151,
+              "soft_error": 1.1922912702998127,
+              "n_true": 2,
+              "n_found": 339,
+              "n_hits": 2,
+              "n_correct": 85,
+              "per_true_min_distance": [
+                1.0132407324570643,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058997050147492625,
+              "f1": 0.011730205278592374,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 339,
+              "mean_matched_distance": 1.1922912702998127,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 1.0132407324570643
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "2.5": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.5663716814159292,
+              "f1": 0.7231638418079096,
+              "soft_error": 1.1922912702998127,
+              "n_true": 2,
+              "n_found": 339,
+              "n_hits": 2,
+              "n_correct": 192,
+              "per_true_min_distance": [
+                1.0132407324570643,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058997050147492625,
+              "f1": 0.011730205278592374,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 339,
+              "mean_matched_distance": 1.1922912702998127,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 1.0132407324570643
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          },
+          "3.0": {
+            "coverage": {
+              "recall": 1.0,
+              "precision": 0.8495575221238938,
+              "f1": 0.9186602870813397,
+              "soft_error": 1.1922912702998127,
+              "n_true": 2,
+              "n_found": 339,
+              "n_hits": 2,
+              "n_correct": 288,
+              "per_true_min_distance": [
+                1.0132407324570643,
+                1.3713418081425612
+              ]
+            },
+            "one_to_one": {
+              "recall": 1.0,
+              "precision": 0.0058997050147492625,
+              "f1": 0.011730205278592374,
+              "matched": 2,
+              "n_true": 2,
+              "n_found": 339,
+              "mean_matched_distance": 1.1922912702998127,
+              "max_matched_distance": 1.3713418081425612,
+              "assignments": [
+                {
+                  "true_index": 0,
+                  "candidate_index": 0,
+                  "distance": 1.0132407324570643
+                },
+                {
+                  "true_index": 1,
+                  "candidate_index": 284,
+                  "distance": 1.3713418081425612
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "old_result_comparison": null,
+    "artifact_npz": "/Users/ramil/Desktop/mag_may/work/results_pareto_validation_all/artifacts/dim10_K2_dseed2_init1.npz"
+  },
+  "total_seconds": 25.545557084027678
+}

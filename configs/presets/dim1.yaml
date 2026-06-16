@@ -1,0 +1,49 @@
+# ============================================================
+#  configs/presets/dim1.yaml — 1D preset
+#
+#  Загружает configs/base.yaml и переопределяет только то,
+#  что специфично для 1D. Всё остальное берётся из base.yaml.
+#
+#  Использование:
+#    python -m scripts.run_experiment --config configs/presets/dim1.yaml --method v1
+#    python -m scripts.run_experiment --config configs/presets/dim1.yaml --method v3
+#    python -m scripts.run_all_experiments --config configs/presets/dim1.yaml --experiment all
+# ============================================================
+
+_base: "../base.yaml"
+
+experiment:
+  name: "dim1_4modes"
+  dim: 1
+
+distribution:
+  mus: [-4.0, 0.0, 3.0, 8.0]
+  sigmas: [0.8, 1.0, 0.6, 0.7]
+  weights: [0.25, 0.30, 0.25, 0.20]
+
+training:
+  num_steps: 200000    # 1D — долгое обучение
+  log_every: 1000
+  save_every: 50000
+
+# Алгоритмы v1/v2/v3: только параметры, отличающиеся от base.yaml
+mode_finder_v1:
+  n_starts: 3
+  starts_min_sep: 0.5
+
+mode_finder_v2:
+  n_starts: 3
+  starts_min_sep: 0.5
+
+mode_finder_v3_f1:
+  n_starts: 5
+  starts_min_sep: 0.5
+
+mode_finder_v3_f2:
+  n_particles: 50
+
+mode_finder_v3_f3:
+  n_particles: 50
+
+baseline:
+  merge_radius: 0.25

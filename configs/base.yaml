@@ -1,0 +1,153 @@
+# ============================================================
+#  configs/base.yaml — базовые значения по умолчанию
+#
+#  Не запускать напрямую — использовать preset-файлы в configs/presets/.
+#  Этот файл документирует все доступные параметры со значениями по умолчанию.
+# ============================================================
+
+experiment:
+  name: "base"
+  seed: 42
+  device: "auto"    # "auto" | "cuda" | "cpu" | "mps"
+  dim: 1
+
+distribution:
+  mus: [-4.0, 0.0, 3.0, 8.0]
+  sigmas: [0.8, 1.0, 0.6, 0.7]
+  weights: [0.25, 0.30, 0.25, 0.20]
+  x_min: -10.0
+  x_max: 10.0
+
+model:
+  T: 1000
+  beta_start: 1.0e-4
+  beta_end: 0.02
+  hidden_dims: [256, 256, 256]
+  activation: "silu"
+
+training:
+  num_steps: 200000
+  batch_size: 512
+  learning_rate: 1.0e-3
+  lr_min: 1.0e-5
+  scheduler: "cosine"
+  log_every: 1000
+  save_every: 50000
+
+checkpoint:
+  checkpoint_dir: "./checkpoints"
+  # filename_override: null   # если задан — используется как есть
+
+outputs:
+  output_dir: "./results"
+
+metrics:
+  eps_hit: 1.0
+
+logging:
+  level: "INFO"
+  use_wandb: false
+  wandb_project: "diffusion-modes"
+  wandb_entity: null
+
+# ─── Алгоритм v1 (оригинальный) ─────────────────────────────
+mode_finder_v1:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01
+  split_eps: 2.0
+  split_threshold: 0.3
+  merge_radius: 0.25
+  ascent_steps: 20
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 3
+  starts_min_sep: 0.5
+  split_directions: "axes"
+
+# ─── Алгоритм v2 ─────────────────────────────────────────────
+mode_finder_v2:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01
+  split_method: "hessian"
+  split_eps: 2.0
+  split_threshold: 0.3
+  hessian_fd_eps: 1.0e-3
+  hessian_split_eigenvalue_threshold: -1.0
+  max_split_directions: 3
+  merge_radius: 0.5
+  adaptive_merge: true
+  ascent_steps: 20
+  normalize_score: true
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 5
+  start_method: "smart"
+  ddim_steps: 50
+  n_pilot_multiplier: 3
+  pilot_cluster_radius: 2.0
+  starts_min_sep: 0.5
+  max_active_per_start: 30
+
+# ─── Алгоритм v3 Фаза 1 (безразмерные критерии) ─────────────
+mode_finder_v3_f1:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01
+  split_eps: 2.0
+  softness_threshold: 0.15
+  amplification_threshold: 2.5
+  tau_abs_min: 0.05
+  max_split_directions: 2
+  hessian_fd_eps: 1.0e-3
+  merge_factor: 0.8
+  merge_radius_min: 0.05
+  ascent_steps: 20
+  normalize_score: true
+  refine_steps: 100
+  refine_step_scale: 0.1
+  n_starts: 5
+  start_method: "smart"
+  ddim_steps: 50
+  n_pilot_multiplier: 3
+  pilot_cluster_radius: 2.0
+  starts_min_sep: 0.5
+  max_active_per_start: 30
+
+# ─── Алгоритм v3 Фаза 2 (population-based) ──────────────────
+mode_finder_v3_f2:
+  timesteps: [800, 500, 300, 200, 150, 100, 80, 60, 40, 30, 20, 10, 5, 0]
+  step_size: 0.01
+  n_particles: 50
+  merge_factor: 0.8
+  merge_radius_min: 0.05
+  ascent_steps: 20
+  normalize_score: true
+  refine_steps: 100
+  refine_step_scale: 0.1
+  ddim_steps: 50
+  init_stop_t: 0
+
+# ─── Алгоритм v3 Фаза 3 (Probability flow ODE) ──────────────
+mode_finder_v3_f3:
+  t_start: 800
+  t_end: 0
+  ode_steps_coarse: 15
+  ode_steps_fine: 5
+  use_adaptive_step: true
+  trace_stability_threshold: 0.3
+  n_substeps_per_interval: 3
+  n_particles: 50
+  cluster_every: 0
+  merge_factor: 0.8
+  merge_radius_min: 0.05
+  n_trace_probe: 8
+  hessian_fd_eps: 1.0e-3
+  refine_steps: 200
+  refine_alpha: 0.001
+  ddim_steps: 50
+
+# ─── Baseline ────────────────────────────────────────────────
+baseline:
+  n_samples: 1000
+  refine_steps: 10
+  refine_alpha: 0.01
+  merge_radius: 0.25
